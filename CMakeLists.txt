@@ -1,4 +1,4 @@
-# 1. Minimum required CMake version
+# 1. Minimum required CMake version(3.10)
 cmake_minimum_required(VERSION 3.10)
 project(cpp-blockchain)
 
