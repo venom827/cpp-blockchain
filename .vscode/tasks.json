@@ -1,0 +1,31 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build cpp-blockchain",
+            "type": "shell",
+            "command": "cmake -S . -B build && cmake --build build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            // "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Run cpp-blockchain",
+            "type": "shell",
+            "command": "./build/cpp-blockchain",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "dependsOn": "Build cpp-blockchain",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        }
+    ]
+}
