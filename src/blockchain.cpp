@@ -18,3 +18,14 @@ bool Blockchain::isChainValid()const{
     }
     return true;
 }
+Block Blockchain::getLatestBlock()const{
+    return chain.back();
+}
+
+void Blockchain::addNewBlock(Block &newBlock){
+    Block lastBlock = getLatestBlock();
+    newBlock.previoushash = lastBlock.hash;
+    newBlock.hash = newBlock.calculatehash();
+    chain.push_back(newBlock);
+
+}
