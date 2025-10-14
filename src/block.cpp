@@ -3,7 +3,7 @@
 #include <sstream>
 #include <ctime>
 
-Block::Block(int idx, const std::string &data, const std::string &prevhash)
+Block::Block(int idx, const std::vector<Transaction>& data, const std::string& prevhash)
     : index(idx), data(data), previoushash(prevhash)
 {
     time_t now = time(nullptr);
@@ -18,6 +18,9 @@ Block::Block(int idx, const std::string &data, const std::string &prevhash)
 
 std::string Block::calculatehash() const{
     std::stringstream ss;
-    ss<<index<<timestamp<<data<<previoushash;
+    ss<<index<<timestamp<<previoushash;
+    for (auto i:data){
+        ss<<i.toString();
+    }
     return picosha2::hash256_hex_string(ss.str());
 }

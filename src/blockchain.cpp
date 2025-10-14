@@ -6,8 +6,12 @@ Blockchain::Blockchain(){
 }
 
 void Blockchain::createGenesisBlock(){
-    Block genBlock(0,"genBlock","0");
-    chain.push_back(genBlock);
+    std::vector<Transaction> genesisTransactions(1);
+    Transaction genesisTransaction("0","0",0);
+    genesisTransactions[0]=genesisTransaction;
+    Block genesisBlock(0, genesisTransactions,"0");
+    chain.push_back(genesisBlock);
+    
 }
 bool Blockchain::isChainValid()const{
     for (int i=1;i<chain.size();i++){
