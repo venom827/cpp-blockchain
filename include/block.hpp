@@ -11,6 +11,7 @@ class Block{
         std::string timestamp;
         std::string previoushash;
         std::string hash;
+        std::string merkleroot;
 
         Block(int idx, const std::vector<Transaction>& data, const std::string &prevhash);
 
